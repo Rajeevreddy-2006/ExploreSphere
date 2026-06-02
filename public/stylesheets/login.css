@@ -1,0 +1,225 @@
+body {
+    background: linear-gradient(
+        135deg,
+        #eef2f7,
+        #dde5ee
+    );
+}
+
+.login-wrapper {
+    min-height: calc(100vh - 130px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* Main Card */
+
+.login-box {
+    width: 1000px;
+    max-width: 95%;
+
+    height: 500px;
+
+    background: #fff;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.12),
+        0 10px 25px rgba(0, 0, 0, 0.08);
+
+    animation: fadeInUp .8s ease;
+}
+
+/* Left Panel */
+
+.left-panel {
+    position: relative;
+    background: white;
+}
+
+/* Remove dark overlay */
+
+.left-panel::after {
+    display: none;
+}
+
+/* Carousel */
+
+#heroCarousel,
+#heroCarousel .carousel-inner,
+#heroCarousel .carousel-item {
+    height: 100%;
+}
+
+/* IMPORTANT */
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center center;
+
+    background: white;
+}
+
+/* Overlay Text */
+
+.overlay-text {
+    position: absolute;
+
+    left: 35px;
+    bottom: 35px;
+    right: 35px;
+
+    color: white;
+
+    z-index: 2;
+
+    text-shadow: 0 2px 8px rgba(0,0,0,.5);
+}
+
+.overlay-text h1 {
+    font-size: 3rem;
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+.overlay-text p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
+
+/* Right Panel */
+
+.form-container {
+    padding: 45px 60px;
+}
+
+.form-container h1 {
+    font-size: 3rem;
+}
+
+/* Inputs */
+
+.custom-input {
+    border: none;
+    border-bottom: 2px solid #dee2e6;
+
+    border-radius: 0;
+
+    padding-left: 0;
+    padding-bottom: 10px;
+
+    transition: .3s;
+}
+
+.custom-input:focus {
+    border-color: #198754;
+    box-shadow: none;
+}
+
+/* Button */
+
+.login-btn {
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 50px;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    transition: all .3s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 20px rgba(25,135,84,.25);
+}
+
+/* Footer */
+
+.footer {
+    height: 60px;
+}
+
+/* Carousel Dots */
+
+.custom-indicators {
+    bottom: 15px;
+}
+
+.custom-indicators button {
+    width: 12px !important;
+    height: 12px !important;
+
+    border-radius: 50% !important;
+
+    margin: 0 6px !important;
+
+    border: none !important;
+
+    background-color: rgba(255,255,255,.5) !important;
+}
+
+.custom-indicators .active {
+    background-color: white !important;
+}
+
+/* Animation */
+
+@keyframes fadeInUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    body {
+        overflow-y: auto;
+    }
+
+    .login-box {
+        height: auto;
+    }
+
+    .overlay-text h1 {
+        font-size: 2rem;
+    }
+
+    .overlay-text p {
+        font-size: 1rem;
+    }
+
+    .form-container {
+        padding: 35px 25px;
+    }
+
+    .form-container h1 {
+        font-size: 2.2rem;
+    }
+
+}

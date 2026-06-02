@@ -1,0 +1,54 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="login-wrapper">
+    <div class="row login-box g-0">
+        <!-- Left Side -->
+        <div class="col-md-6 position-relative left-panel">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200" alt="Camping"
+                class="img-fluid h-100 w-100 object-fit-cover">
+            <div class="overlay-text">
+                <h1>CampVerse</h1>
+                <p>
+                    Discover breathtaking campgrounds and create
+                    unforgettable adventures.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="col-md-6 bg-white d-flex align-items-center">
+            <div class="form-container w-100">
+                <h1 class="text-center fw-bold">
+                    Welcome Back
+                </h1>
+                <p class="text-center text-muted mb-5">
+                    Login to continue your journey
+                </p>
+                <form action="/login" method="POST" class="validated-form" novalidate>
+                    <div class="mb-3">
+                        <label class="form-label" for="username">Username</label>
+                        <input class="form-control" type="text" id="username" name="username" autofocus required>
+                        <!-- <div class="valid-feedback">
+                            Looks good!
+                        </div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="password">Password</label>
+                        <input class="form-control" type="password" id="password" name="password" required>
+                        <!-- <div class="valid-feedback">
+                            Looks good!
+                        </div> -->
+                    </div>
+                    <button class="btn btn-sm btn-success login-btn">Login</button>
+                </form>
+                <p class="text-center mt-4 mb-0">
+                    New to Campgrounds?
+                    <a  href="/register"
+                        class="text-success fw-bold text-decoration-none">
+                        Create Account
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
