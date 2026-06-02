@@ -3,6 +3,7 @@ node_modules/
 .vscode
 .vercel
 .vercelignore
+vercel.json
 
 .DS_Store
 Thumbs.db
