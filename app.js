@@ -22,6 +22,8 @@ const MongoStore = require("connect-mongo").default;
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
+const heritageReviewRoutes = require('./routes/heritageReviews');
+const heritageRoutes = require('./routes/heritages');
 
 // const dbUrl = 'mongodb://localhost:27017/yelp-camp';
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
@@ -140,8 +142,12 @@ app.use((req, res, next) => {
 
 
 app.use('/', userRoutes);
-app.use('/campgrounds', campgroundRoutes)
-app.use('/campgrounds/:id/reviews', reviewRoutes)
+app.use('/campgrounds', campgroundRoutes);
+app.use('/heritage',heritageRoutes);
+app.use('/campgrounds/:id/reviews', reviewRoutes);
+app.use('/heritage/:id/reviews', heritageReviewRoutes);
+
+app.get('/about', (req, res) => { res.render('about'); });
 
 
 app.get('/', (req, res) => {

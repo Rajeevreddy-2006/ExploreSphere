@@ -1,6 +1,6 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">CampVerse</a>
+        <a class="navbar-brand" href="#">ExploreSphere</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -8,7 +8,8 @@
             <div class="navbar-nav">
                 <a class="nav-link" href="/">Home</a>
                 <a class="nav-link" href="/campgrounds">Campgrounds</a>
-                <a class="nav-link" href="/campgrounds/new">New Campground</a>
+                <a class="nav-link" href="/heritage">Heritages</a>
+                <a class="nav-link" href="/about">About</a>
                 <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
             </div>
             <div class="navbar-nav ms-auto">
@@ -16,7 +17,31 @@
                     <a class="nav-link" href="/login">Login</a>
                     <a class="nav-link" href="/register">Register</a>
                 <% } else { %>
-                    <a class="nav-link" href="/logout">Logout</a>
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#"
+                        role="button" data-bs-toggle="dropdown">
+                            <%= currentUser.username %>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li class="px-3 py-2">
+                                <strong><%= currentUser.username %></strong><br>
+                                <small class="text-muted">
+                                    <%= currentUser.email %>
+                                </small>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="/profile">
+                                    Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-danger" href="/logout">
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 <% } %>
             </div>
         </div>

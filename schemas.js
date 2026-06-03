@@ -33,6 +33,20 @@ module.exports.campgroundSchema = Joi.object({
     deleteImages: Joi.array()
 });
 
+module.exports.heritageSchema = Joi.object({
+    heritage: Joi.object({
+        title: Joi.string().required().escapeHTML(),
+        category: Joi.string().valid(
+                'Temple',
+                'Fort',
+                'Monument',
+                'Heritage Site').required(),
+        location: Joi.string().required().escapeHTML(),
+        description: Joi.string().required().escapeHTML()
+    }).required(),
+    deleteImages: Joi.array()
+});
+
 module.exports.reviewSchema = Joi.object({
     review: Joi.object({
         rating: Joi.number().required().min(1).max(5),

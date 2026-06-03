@@ -1,0 +1,129 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="row">
+    <h1 class="text-center">Edit Heritage Site</h1>
+    <div class="col-6 offset-md-3">
+        <form
+            action="/heritage/<%= heritage._id %>?_method=PUT"
+            method="POST"
+            novalidate
+            class="validated-form"
+            enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label" for="title">
+                    Title
+                </label>
+                <input
+                    class="form-control"
+                    type="text"
+                    id="title"
+                    name="heritage[title]"
+                    value="<%= heritage.title %>"
+                    required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="category">
+                    Category
+                </label>
+                <select
+                    class="form-select"
+                    id="category"
+                    name="heritage[category]"
+                    required>
+                    <option
+                        value="Temple"
+                        <%= heritage.category === 'Temple' ? 'selected' : '' %>>
+                        Temple
+                    </option>
+                    <option
+                        value="Fort"
+                        <%= heritage.category === 'Fort' ? 'selected' : '' %>>
+                        Fort
+                    </option>
+                    <option
+                        value="Monument"
+                        <%= heritage.category === 'Monument' ? 'selected' : '' %>>
+                        Monument
+                    </option>
+                    <option
+                        value="Heritage Site"
+                        <%= heritage.category === 'Heritage Site' ? 'selected' : '' %>>
+                        Heritage Site
+                    </option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="location">
+                    Location
+                </label>
+                <input
+                    class="form-control"
+                    type="text"
+                    id="location"
+                    name="heritage[location]"
+                    value="<%= heritage.location %>"
+                    required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="description">
+                    Description
+                </label>
+                <textarea
+                    class="form-control"
+                    id="description"
+                    name="heritage[description]"
+                    required><%= heritage.description %></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="input-group mb-3">
+                <input
+                    type="file"
+                    class="form-control"
+                    id="image"
+                    name="image"
+                    multiple>
+            </div>
+            <div class="mb-3">
+                <% heritage.images.forEach((img,i)=>{ %>
+                    <img
+                        src="<%= img.thumbnail %>"
+                        class="img-thumbnail"
+                        alt="">
+                    <div class="form-check-inline">
+                        <input
+                            type="checkbox"
+                            id="image-<%= i %>"
+                            name="deleteImages[]"
+                            value="<%= img.filename %>">
+                    </div>
+                    <label for="image-<%= i %>">
+                        Delete?
+                    </label>
+                <% }) %>
+            </div>
+
+            <div class="d-flex justify-content-between mt-3">
+                <button class="btn btn-info">
+                    Update Heritage Site
+                </button>
+                <a
+                    href="/heritage/<%= heritage._id %>"
+                    class="btn btn-secondary">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container py-2">
+    <div class="text-center mb-4">
+        <h1 class="display-2 fw-bold">Heritage Explorer</h1>
+        <p class="lead fs-4 mt-3">
+            Journey through centuries of history, culture,
+            architecture and heritage.
+        </p>
+        <p class="text-muted">
+            Discover temples, forts, monuments and heritage landmarks
+            from across Globe.
+        </p>
+    </div>
+    <div class="row text-center mb-5">
+        <div class="col-md-3">
+            <h3>🛕</h3>
+            <h5>Temples</h5>
+            <p class="text-muted">Sacred destinations</p>
+        </div>
+        <div class="col-md-3">
+            <h3>🏰</h3>
+            <h5>Forts</h5>
+            <p class="text-muted">Historic strongholds</p>
+        </div>
+        <div class="col-md-3">
+            <h3>🏛️</h3>
+            <h5>Monuments</h5>
+            <p class="text-muted">Architectural wonders</p>
+        </div>
+        <div class="col-md-3">
+            <h3>🌍</h3>
+            <h5>Heritage Sites</h5>
+            <p class="text-muted">Cultural treasures</p>
+        </div>
+    </div>
+    <!-- Category Cards -->
+    <div class="row g-4">
+        <div class="col-md-6">
+            <a href="/heritage/category/Temple" class="heritage-card">
+                <!-- <div class="icon">🛕</div> -->
+                <h2>Temple</h2>
+                <p>
+                    Discover ancient temples, sacred architecture,
+                    and spiritual landmarks.
+                </p>
+                <span>Explore Temples →</span>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="/heritage/category/Fort" class="heritage-card">
+                <!-- <div class="icon">🏰</div> -->
+                <h2>Fort</h2>
+                <p>
+                    Explore historic forts, royal kingdoms,
+                    and military strongholds.
+                </p>
+                <span>Explore Forts →</span>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="/heritage/category/Monument" class="heritage-card">
+                <!-- <div class="icon">🏛️</div> -->
+                <h2>Monument</h2>
+                <p>
+                    Visit iconic monuments and architectural
+                    masterpieces.
+                </p>
+                <span>Explore Monuments →</span>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="/heritage/category/Heritage Site" class="heritage-card">
+                <!-- <div class="icon">🌍</div> -->
+                <h2>Heritage Site</h2>
+                <p>
+                    Experience UNESCO and culturally significant
+                    heritage destinations.
+                </p>
+                <span>Explore Heritage Sites →</span>
+            </a>
+        </div>
+    </div>
+    <!-- Add Heritage Button -->
+    <% if(currentUser){ %>
+        <div class="text-center mt-5">
+            <a href="/heritage/new" class="btn btn-success btn-lg px-5">
+                Add Heritage Site
+            </a>
+        </div>
+    <% } %>
+</div>
+
+<style>
+.heritage-card{
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    text-decoration: none;
+    color: #212529;
+    display: block;
+    height: 100%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.heritage-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    color: #212529;
+}
+
+.heritage-card .icon{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.heritage-card h2{
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.heritage-card p{
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+.heritage-card span{
+    font-weight: 600;
+    color: #0d6efd;
+}
+</style>

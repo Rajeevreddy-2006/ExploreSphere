@@ -1,4 +1,5 @@
-const {campgroundSchema,reviewSchema} = require('./schemas.js');
+const { campgroundSchema, heritageSchema, reviewSchema } = require('./schemas.js');
+const Heritage = require("./models/heritage");
 const ExpressError = require('./utils/ExpressError');
 const Campground = require("./models/campground");
 const Review = require("./models/review");
@@ -44,7 +45,7 @@ module.exports.isReviewAuthor = async (req,res,next) => {
     const review = await Review.findById(reviewId);
     if(!review.author.equals(req.user._id)){
         req.flash('error' , 'you do not have permission to do that!');
-        return res.redirect(`/campgrounds/${id}`);
+        return res.redirect('back');
     }
     next();
 }
@@ -57,4 +58,27 @@ module.exports.validateReview = (req,res,next) => {
     }else{
         next();
     }
+}
+
+module.exports.validateHeritage = (req, res, next) => {
+    const { error } = heritageSchema.validate(req.body);
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',');
+        throw new ExpressError(msg, 400);
+    } else {
+        next();
+    }
+}
+
+module.exports.isHeritageAuthor = async (req, res, next) => {
+    const { id } = req.params;
+    const heritage = await Heritage.findById(id);
+    if (!heritage.author.equals(req.user._id)) {
+        req.flash(
+            'error',
+            'you do not have permission to do that!'
+        );
+        return res.redirect(`/heritage/${id}`);
+    }
+    next();
 }
