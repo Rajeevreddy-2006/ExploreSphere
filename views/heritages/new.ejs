@@ -1,96 +1,48 @@
 <% layout('layouts/boilerplate') %>
 
-<div class="row">
-    <h1 class="text-center">
-        Add Heritage Site
-    </h1>
-    <div class="col-6 offset-md-3 mb-5">
-        <form
-            action="/heritage"
-            method="POST"
-            novalidate
-            class="validated-form"
-            enctype="multipart/form-data">
+<div class="row justify-content-center">
+    <h1 class="text-center mb-4"> Add Heritage Site </h1>
+    <div class="col-12 col-md-8 col-lg-6 mb-5">
+        <form action="/heritage" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
             <div class="mb-3">
-                <label class="form-label" for="title">
-                    Title
-                </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    id="title"
-                    name="heritage[title]"
-                    required>
+                <label class="form-label" for="title"> Title </label>
+                <input class="form-control" type="text" id="title" name="heritage[title]" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="category">
-                    Category
-                </label>
-                <select
-                    class="form-select"
-                    id="category"
-                    name="heritage[category]"
-                    required>
+                <label class="form-label" for="category"> Category </label>
+                <select class="form-select" id="category" name="heritage[category]" required>
                     <option value="">Select Category</option>
-                    <option value="Temple">
-                        Temple
-                    </option>
-                    <option value="Fort">
-                        Fort
-                    </option>
-                    <option value="Monument">
-                        Monument
-                    </option>
-                    <option value="Heritage Site">
-                        Heritage Site
-                    </option>
+                    <option value="Temple"> Temple </option>
+                    <option value="Fort"> Fort </option>
+                    <option value="Monument"> Monument </option>
+                    <option value="Heritage Site"> Heritage Site </option>
                 </select>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="location">
-                    Location
-                </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    id="location"
-                    name="heritage[location]"
-                    required>
+                <label class="form-label" for="location"> Location </label>
+                <input class="form-control" type="text" id="location" name="heritage[location]" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="description">
-                    Description
-                </label>
-                <textarea
-                    class="form-control"
-                    id="description"
-                    name="heritage[description]"
-                    required></textarea>
+                <label class="form-label" for="description"> Description </label>
+                <textarea class="form-control" id="description" name="heritage[description]" required></textarea>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
             </div>
             <div class="input-group mb-3">
-                <input
-                    type="file"
-                    class="form-control"
-                    id="image"
-                    name="image"
-                    multiple>
+                <input type="file" class="form-control" id="image" name="image" multiple>
             </div>
-            <div class="d-flex justify-content-between mt-3">
-                <button class="btn btn-info">
+            <div class="d-flex flex-column flex-md-row gap-2 mt-3">
+                <button class="btn btn-info w-100 w-md-auto">
                     Add Heritage Site
                 </button>
-                <a
-                    href="/heritage"
-                    class="btn btn-secondary">
+                <a href="/heritage" class="btn btn-secondary w-100 w-md-auto">
                     Cancel
                 </a>
             </div>

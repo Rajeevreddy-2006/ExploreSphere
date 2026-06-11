@@ -1,16 +1,23 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">ExploreSphere</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="/">ExploreSphere</a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+        <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
                 <a class="nav-link" href="/">Home</a>
                 <a class="nav-link" href="/campgrounds">Campgrounds</a>
                 <a class="nav-link" href="/heritage">Heritages</a>
                 <a class="nav-link" href="/about">About</a>
-                <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
             </div>
             <div class="navbar-nav ms-auto">
                 <% if(!currentUser) { %>
@@ -18,8 +25,12 @@
                     <a class="nav-link" href="/register">Register</a>
                 <% } else { %>
                     <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#"
-                        role="button" data-bs-toggle="dropdown">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             <%= currentUser.username %>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
