@@ -1,13 +1,30 @@
 <% if(success && success.length) { %>
-<div class="alert alert-success alert-dismissible fade show" role="alert">
+<div id="successFlash" class="alert alert-success alert-dismissible fade show" role="alert">
     <%= success %>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 <% } %>
 
 <% if(error && error.length) { %>
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
+<div id="errorFlash" class="alert alert-danger alert-dismissible fade show" role="alert">
     <%= error %>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 <% } %>
+
+<script>
+    setTimeout(() => {
+        const successFlash = document.getElementById('successFlash');
+        const errorFlash = document.getElementById('errorFlash');
+
+        if (successFlash) {
+            successFlash.classList.remove('show');
+            setTimeout(() => successFlash.remove(), 300);
+        }
+
+        if (errorFlash) {
+            errorFlash.classList.remove('show');
+            setTimeout(() => errorFlash.remove(), 300);
+        }
+    }, 5000); // Change 3000 to desired time in milliseconds
+</script>
